@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-fabric.jpg";
 
 const HeroSection = () => {
@@ -54,18 +55,18 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <a
-              href="#collections"
+            <Link
+              to="/shop"
               className="inline-flex items-center px-8 py-4 bg-gradient-gold text-primary font-semibold text-sm tracking-wide uppercase rounded-sm hover:opacity-90 transition-opacity"
             >
               Explore Collection
-            </a>
-            <a
-              href="#categories"
+            </Link>
+            <Link
+              to="/new-collections"
               className="inline-flex items-center px-8 py-4 border border-primary-foreground/30 text-primary-foreground font-medium text-sm tracking-wide uppercase rounded-sm hover:bg-primary-foreground/10 transition-colors"
             >
               Shop by Category
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
