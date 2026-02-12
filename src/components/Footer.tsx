@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <h3 className="font-serif text-2xl font-bold mb-4">
-              Rang<span className="text-gradient-gold">Mahal</span>
+              New <span className="text-gradient-gold">Asia</span>
             </h3>
             <p className="text-primary-foreground/50 text-sm leading-relaxed">
               Your trusted destination for premium fabrics and clothing for the entire family.
@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-12 pt-6 text-center text-xs text-primary-foreground/30">
-          © 2026 RangMahal. All rights reserved.
+          © 2026 New Asia . All rights reserved.
         </div>
       </div>
     </footer>
