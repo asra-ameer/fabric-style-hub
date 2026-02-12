@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Menu, X, Search } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  const links = ["Collections", "Sarees", "Shalwar Kameez", "Tops", "Fabric"];
+  const links = [
+    { label: "Home", path: "/" },
+    { label: "Shop", path: "/shop" },
+    { label: "New Collections", path: "/new-collections" },
+    { label: "Flat Offer", path: "/flat-offer" },
+  ];
 
   return (
     <motion.nav
@@ -16,19 +23,23 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <h1 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+          <Link to="/" className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-foreground">
             Rang<span className="text-gradient-gold">Mahal</span>
-          </h1>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-gradient-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-gradient-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                  location.pathname === link.path
+                    ? "text-foreground after:scale-x-100 after:origin-bottom-left"
+                    : "text-muted-foreground hover:text-foreground after:scale-x-0"
+                }`}
               >
-                {link}
-              </a>
+                {link.label}
+              </Link>
             ))}
           </div>
 
@@ -63,13 +74,16 @@ const Navbar = () => {
           >
             <div className="px-6 py-4 space-y-3">
               {links.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-base font-medium transition-colors ${
+                    location.pathname === link.path ? "text-accent" : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
-                  {link}
-                </a>
+                  {link.label}
+                </Link>
               ))}
             </div>
           </motion.div>
