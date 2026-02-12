@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-foreground">
-            Rang<span className="text-gradient-gold">Mahal</span>
+            <img src="/src/assets/new_asia_logo.png" alt="new asia Logo" className="inline-block mr-2 w-20 h-20" />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
